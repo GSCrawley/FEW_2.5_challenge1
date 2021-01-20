@@ -197,3 +197,4 @@ The `...` is the spread operator, use it to break an array apart into seprate pa
 Math.max(...[56, 23, 78, 94])
 ```
 # FEW_2.5_challenge1
+# FEW_2.5_challenge1
