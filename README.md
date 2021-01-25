@@ -136,9 +136,9 @@ Examples:
 
 ```JS
 // Find passengers by gender 
-const malePassengers = data.filter((passenger) => {
-  return passenger.fields.sex === 'male'
-})
+// const malePassengers = data.filter((passenger) => {
+//   return passenger.fields.sex === 'male'
+// })
 
 malePassengers.length // number of male passengers
 ```

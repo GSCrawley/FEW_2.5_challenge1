@@ -20,9 +20,13 @@
 // 1 ---------------------------------------------------------------
 // Return the total number of passengers. 
 // Return a number.
+// const malePassengers = data.filter((passenger) => {
+// 	return passenger.fields.sex === 'male'
+//   })
+
 
 function getTotalPassengers(data) {
-	return 0
+		return data.length
 }
 
 // 2 ---------------------------------------------------------------
@@ -31,7 +35,7 @@ function getTotalPassengers(data) {
 // Return a number.
 
 function getSurvivorCount(data) {
-	return 0
+	return data.filter(item => item.fields.survived === "Yes").length
 }
 
 // 3 ---------------------------------------------------------------
