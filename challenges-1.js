@@ -130,21 +130,18 @@ function getMaxFare(data) {
 // Return the count of passengers by gender. 
 
 function getPassengersByGender(data, gender) {
-	return 0
+	return data.filter(p => p.fields.sex === gender).length
 }
-
 // 13 ---------------------------------------------------------------
 // Return the number of passengers who survived by gender. 
-
 function getSurvivorsByGender(data, gender) {
-	return 0
+	return data.filter(p => p.fields.sex === gender && p.fields.survived === 'Yes').length
 }
 
 // 14 ---------------------------------------------------------------
 // Return the number of passengers who did not survived by gender. 
-
 function getCasualitiesByGender(data, gender) {
-	return 0
+	return data.filter(p => p.fields.sex === gender && p.fields.survived === 'No').length
 }
 
 // 15 ---------------------------------------------------------------
