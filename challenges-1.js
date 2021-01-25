@@ -104,7 +104,8 @@ function getMaxAge(data) {
 // or Q. 
 
 function getEmbarkedCount(data, embarked) {
-	return 0
+	const location = data.map(p => p.fields.embarked).filter(p => p !== undefined)
+	return location.filter(emb => emb === embarked).length
 }
 
 // 10 ---------------------------------------------------------------
@@ -112,17 +113,19 @@ function getEmbarkedCount(data, embarked) {
 // for some passengers you'll need to filter this out! 
 
 function getMinFare(data) {
-	return 0
+	const fares = data.map(p => p.fields.fare).filter(f => f !== undefined )
+	return Math.min(...fares)
 }
+
 
 // 11 ---------------------------------------------------------------
 // Return the highest fare paid by any passenger. Some of the 
 // passengers are missing data for fare.
 
 function getMaxFare(data) {
-	return 0
+	const fares = data.map(p => p.fields.fare).filter(f => f !== undefined )
+	return Math.max(...fares)
 }
-
 // 12 ---------------------------------------------------------------
 // Return the count of passengers by gender. 
 
