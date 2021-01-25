@@ -26,7 +26,9 @@
 
 
 function getTotalPassengers(data) {
-		return data.length
+	return data.reduce((count) => {
+		return count + 1;
+	}, 0)
 }
 
 // 2 ---------------------------------------------------------------
@@ -35,7 +37,11 @@ function getTotalPassengers(data) {
 // Return a number.
 
 function getSurvivorCount(data) {
-	return data.filter(item => item.fields.survived === "Yes").length
+	const survivors = data.filter((passenger) => {
+		return passenger.fields.survived === 'Yes'
+	});
+
+	return survivors.length
 }
 
 // 3 ---------------------------------------------------------------
@@ -43,7 +49,7 @@ function getSurvivorCount(data) {
 // Return a number.
 
 function getCasualityCount(data) {
-	return 0
+	return data.filter(item => item.fields.survived === "No").length
 }
 
 // 4 ---------------------------------------------------------------
@@ -53,7 +59,7 @@ function getCasualityCount(data) {
 // Return a number
 
 function countPassengersInClass(data, pclass) {
-	return 0
+	return data.filter(item => item.fields.pclass === pclass).length
 }
 
 // 5 ---------------------------------------------------------------
@@ -61,7 +67,7 @@ function countPassengersInClass(data, pclass) {
 // the data and passenger class. Return only passengers  
 
 function getSurvivorCountForClass(data, pclass) {
-	return 0
+	return data.filter(item => item.fields.survived === 'Yes' && item.fields.pclass === pclass).length
 }
 
 // 6 ---------------------------------------------------------------
@@ -70,7 +76,7 @@ function getSurvivorCountForClass(data, pclass) {
 // the number of passengers who did not survive for that class. 
 
 function getCasualityCountForClass(data, pclass) {
-	return 0
+	return data.filter(item => item.fields.survived === 'No' && item.fields.pclass === pclass).length
 }
 
 // 7 ---------------------------------------------------------------
@@ -78,14 +84,18 @@ function getCasualityCountForClass(data, pclass) {
 // passenger data where the age is missing. 
 
 function getMinAge(data) {
-	return 0
+	const ages = data.map(passenger => {
+		return passenger.fields.age;
+	}).filter( p => p !== undefined)
+	return Math.min(...ages)
 }
-
 // 8 ---------------------------------------------------------------
 // Return the age of the oldest passenger. 
-
 function getMaxAge(data) {
-	return 0
+	const ages = data.map(passenger => {
+		return passenger.fields.age;
+	}).filter( p => p !== undefined)
+	return Math.max(...ages)
 }
 
 // 9 ---------------------------------------------------------------

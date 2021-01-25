@@ -8,6 +8,7 @@
         "name": "Olsen, Mr. Ole Martin", 
         "embarked": "S", 
         "parch": 0, 
+        "age": 50,
         "pclass": 3, 
         "sex": "male", 
         "survived": "No", 
