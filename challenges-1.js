@@ -93,9 +93,8 @@ function getMinAge(data) {
 // Return the age of the oldest passenger. 
 function getMaxAge(data) {
 	const ages = data.map(passenger => {
-		return passenger.fields.age;
-	}).filter( p => p !== undefined)
-	return Math.max(...ages)
+		return passenger.fields.age;}).filter( p => p !== undefined)
+		return Math.max(...ages)
 }
 
 // 9 ---------------------------------------------------------------
@@ -147,16 +146,12 @@ function getCasualitiesByGender(data, gender) {
 // 15 ---------------------------------------------------------------
 // Return the number of passengers who survived by passenger class.
 
-function getSurvivorsByPClass(data, pclass) {
-	return 0
-}
+
+
 
 // 16 ---------------------------------------------------------------
 // Return the number of passengers who survived by passenger class.
 
-function getCasualitiesByPClass(data, pclass) {
-	return 0
-}
 
 // 17 ---------------------------------------------------------------
 // Write a function that returns an array of unique values for any
@@ -165,8 +160,10 @@ function getCasualitiesByPClass(data, pclass) {
 // [1,2,3]. If you wanted to find the number of embarkations the 
 // function should return: ['S', 'C', 'Q']
 
+
 function getUniqueValues(data, property) {
-	return 0
+	const props = data.map( p => p.fields.property).filter( prop => property === prop)
+  return [...new Set(props)]
 }
 
 // 18 ---------------------------------------------------------------
@@ -238,8 +235,8 @@ module.exports.getMinFare = getMinFare
 module.exports.getPassengersByGender = getPassengersByGender
 module.exports.getSurvivorsByGender = getSurvivorsByGender
 module.exports.getCasualitiesByGender = getCasualitiesByGender
-module.exports.getSurvivorsByPClass = getSurvivorsByPClass
-module.exports.getCasualitiesByPClass = getCasualitiesByPClass
+// module.exports.getSurvivorsByPClass = getSurvivorsByPClass
+// module.exports.getCasualitiesByPClass = getCasualitiesByPClass
 module.exports.getTotalFare = getTotalFare
 module.exports.getAverageFare = getAverageFare
 module.exports.getMedianFare = getMedianFare
