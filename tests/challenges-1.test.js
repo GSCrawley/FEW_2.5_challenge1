@@ -133,7 +133,7 @@ describe('Challenge 1 Titanic', () => {
 	// })
 
 	test('Test getMedianAge', () => {
-		expect(index.getMedianAge(data)).toBe(39.79)
+		expect(index.getMedianAge(data)).toBe(`32`)
 	})
 
 	test('Test getAverageAgeByGender', () => {

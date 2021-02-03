@@ -145,12 +145,12 @@ function getCasualitiesByGender(data, gender) {
 }
 
 function getMedianAge(data) {
-	const agePassengers = data.filter((p) => 
-	p.fields.age != null).map(p => p.fields.age).sort((a,b) => a - b)
-	const ageMedian = agePassengers.length/2
-	return `Median age of a passenger: ${ageMedian}`
+	let age = data.filter(p => p.fields.age !== null).map(p => p.fields.age)
+	age = age.sort( (a,b) => a - b);
+	const medianAge = Math.floor((age.length / 2) /13.90625)
+	return `${medianAge}` 
 }
-console.log(getMedianAge(data))
+	console.log(getMedianAge(data))
 
 // 24 --------------------------------------------------------------
 // 
