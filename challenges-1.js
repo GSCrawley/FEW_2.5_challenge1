@@ -23,6 +23,7 @@
 // const malePassengers = data.filter((passenger) => {
 // 	return passenger.fields.sex === 'male'
 //   })
+let data = require('./titanic-passengers.json');
 
 
 function getTotalPassengers(data) {
@@ -143,87 +144,32 @@ function getCasualitiesByGender(data, gender) {
 	return data.filter(p => p.fields.sex === gender && p.fields.survived === 'No').length
 }
 
-// 15 ---------------------------------------------------------------
-// Return the number of passengers who survived by passenger class.
-
-
-
-
-// 16 ---------------------------------------------------------------
-// Return the number of passengers who survived by passenger class.
-
-
-// 17 ---------------------------------------------------------------
-// Write a function that returns an array of unique values for any
-// property in the data. For example If we needed to find number 
-// of passenger classes from data this function should return:
-// [1,2,3]. If you wanted to find the number of embarkations the 
-// function should return: ['S', 'C', 'Q']
-
-
-function getUniqueValues(data, property) {
-	const props = data.map( p => p.fields.property).filter( prop => property === prop)
-  return [...new Set(props)]
-}
-
-// 18 ---------------------------------------------------------------
-// Return all of the objects in the data where a given field is 
-// not undefined. If a field is undefined it means that field is 
-// missing from the data. 
-
-function getAllOfField(data, field) {
-	return 0
-}
-
-// 19 --------------------------------------------------------------
-// Return the total of all fares paid. 
-
-function getTotalFare(data) {
-	return 0
-}
-
-// 20 --------------------------------------------------------------
-// Return the average fare paid.
-
-function getAverageFare(data) {
-	return 0
-}
-
-// 21 --------------------------------------------------------------
-// Return the median fare. The median is the value equal distance
-// from the minimum and maximum values. 
-
-function getMedianFare(data) {
-	return 0
-}
-
-// 22 --------------------------------------------------------------
-// Return the average age of all passengers. 
-
-function getAverageAge(data) {
-	return 0
-}
-
-// 23 --------------------------------------------------------------
-// Return the median age from passengers. 
-
 function getMedianAge(data) {
-	return 0
+	const agePassengers = data.filter((p) => 
+	p.fields.age != null).map(p => p.fields.age).sort((a,b) => a - b)
+	const ageMedian = agePassengers.length/2
+	return `Median age of a passenger: ${ageMedian}`
 }
+console.log(getMedianAge(data))
 
 // 24 --------------------------------------------------------------
 // 
 
 function getAverageAgeByGender(data, gender) {
-	return 0
+	const agePassengerSex = data.filter((passenger) => 
+	passenger.fields.sex == (gender)).filter((passenger) => 
+	passenger.fields.age != null).map(passenger => passenger.fields.age)
+	const ageAverage = (agePassengerSex.reduce((age, p) => age + p, 0))/agePassengerSex.length
+	return `Average age of ${gender} passengers: ${ageAverage}`
 }
+console.log(getAverageAgeByGender(data, "male"))
+console.log(getAverageAgeByGender(data, "female"))
 
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 module.exports.getTotalPassengers = getTotalPassengers
 module.exports.getSurvivorCount = getSurvivorCount
 module.exports.getCasualityCount = getCasualityCount
-module.exports.getUniqueValues = getUniqueValues
 module.exports.countPassengersInClass = countPassengersInClass
 module.exports.getSurvivorCountForClass = getSurvivorCountForClass
 module.exports.getCasualityCountForClass = getCasualityCountForClass
@@ -235,11 +181,5 @@ module.exports.getMinFare = getMinFare
 module.exports.getPassengersByGender = getPassengersByGender
 module.exports.getSurvivorsByGender = getSurvivorsByGender
 module.exports.getCasualitiesByGender = getCasualitiesByGender
-// module.exports.getSurvivorsByPClass = getSurvivorsByPClass
-// module.exports.getCasualitiesByPClass = getCasualitiesByPClass
-module.exports.getTotalFare = getTotalFare
-module.exports.getAverageFare = getAverageFare
-module.exports.getMedianFare = getMedianFare
-module.exports.getAverageAge = getAverageAge
 module.exports.getMedianAge = getMedianAge
 module.exports.getAverageAgeByGender = getAverageAgeByGender
